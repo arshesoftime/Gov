@@ -16,6 +16,9 @@ NEWSPIDER_MODULE = 'gov.spiders'
 
 MONGO_URI = 'localhost'
 MONGO_DB = 'gov'
+
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'gov (+http://www.yourdomain.com)'
 
@@ -67,7 +70,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'gov.pipelines.MDPipeline': 300
+   'gov.pipelines.MDPipeline': 300,
+  'scrapy_redis.pipelines.RedisPipeline': 301
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,3 +94,4 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+REDIS_URL = 'redis://root:123456@##:6379'
