@@ -14,7 +14,7 @@ class AngovSpider(Spider):
     name = 'bj'
     page =500
     count =0
-    def __init__(self):
+    def __init__(self,**kwargs):
         self.browser = webdriver.Chrome(chrome_options=chrome_options)
         self.browser.set_page_load_timeout(30)
         self.browser2=webdriver.Chrome(chrome_options=chrome_options)
