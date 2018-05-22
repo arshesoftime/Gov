@@ -12,7 +12,7 @@ class zjSpider(Spider):
     name = 'zj'
     page = 500
     count = 1
-    def __init__(self):
+    def __init__(self,**kwargs):
         self.browser = webdriver.Chrome(chrome_options=chrome_options)
         self.browser.set_page_load_timeout(30)
         self.browser2=webdriver.Chrome(chrome_options=chrome_options)
