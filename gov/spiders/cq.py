@@ -13,7 +13,7 @@ class cqSpider(Spider):
     name = 'chongqing'
     page =500
 #这里将webdriver定义在spider文件的好处是，不需要每一次请求url都打开和关闭浏览器。
-    def __init__(self):
+    def __init__(self,**kwargs):
         # self.item = cqItem()
         self.browser = webdriver.Chrome(chrome_options=chrome_options)
         self.browser.set_page_load_timeout(30)
